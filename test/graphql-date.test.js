@@ -4,14 +4,14 @@ var it = global.it
 var expect = require('chai').expect
 var Kind = require('graphql/language').Kind
 
-var GraphQlDate = require('../index.js')
+var GraphQLDate = require('../index.js')
 
-describe('GraphQlDate', function () {
+describe('GraphQLDate', function () {
   describe('serialize', function() {
     it('should error when serializing a string value', function (done) {
       var str = '2015-07-24T10:56:42.744Z'
       expect(
-        GraphQlDate.serialize.bind(GraphQlDate, str)
+        GraphQLDate.serialize.bind(GraphQLDate, str)
       ).to.throw(/not an instance of Date/)
       done()
     })
@@ -20,7 +20,7 @@ describe('GraphQlDate', function () {
       var date = new Date('invalid')
 
       expect(
-        GraphQlDate.serialize.bind(GraphQlDate, date)
+        GraphQLDate.serialize.bind(GraphQLDate, date)
       ).to.throw(/an invalid Date/)
       done()
     })
@@ -29,7 +29,7 @@ describe('GraphQlDate', function () {
       var str = '2015-07-24T10:56:42.744Z'
       var date = new Date(str)
       expect(
-        GraphQlDate.serialize(date)
+        GraphQLDate.serialize(date)
       ).to.equal(date.toJSON())
       done()
     })
@@ -40,14 +40,14 @@ describe('GraphQlDate', function () {
       var str = 'invalid'
 
       expect(
-        GraphQlDate.parseValue.bind(GraphQlDate, str)
+        GraphQLDate.parseValue.bind(GraphQLDate, str)
       ).to.throw(/an invalid Date/)
       done()
     })
 
     it('should parse a value to date', function (done) {
       var str = '2015-07-24T10:56:42.744Z'
-      var date = GraphQlDate.parseValue(str)
+      var date = GraphQLDate.parseValue(str)
       expect(date).to.be.an.instanceOf(Date)
       expect(date.toJSON()).to.equal(str)
       done()
@@ -60,7 +60,7 @@ describe('GraphQlDate', function () {
         kind: Kind.INT
       }
       expect(
-        GraphQlDate.parseLiteral.bind(GraphQlDate, ast)
+        GraphQLDate.parseLiteral.bind(GraphQLDate, ast)
       ).to.throw(/only parse strings/)
       done()
     })
@@ -71,7 +71,7 @@ describe('GraphQlDate', function () {
         value: 'invalid'
       }
       expect(
-        GraphQlDate.parseLiteral.bind(GraphQlDate, ast)
+        GraphQLDate.parseLiteral.bind(GraphQLDate, ast)
       ).to.throw(/Invalid date$/)
       done()
     })
@@ -82,7 +82,7 @@ describe('GraphQlDate', function () {
         value: '2015-07-24T10:56:42' // doesnt have ms in format
       }
       expect(
-        GraphQlDate.parseLiteral.bind(GraphQlDate, ast)
+        GraphQLDate.parseLiteral.bind(GraphQLDate, ast)
       ).to.throw(/Invalid date format/)
       done()
     })
@@ -92,7 +92,7 @@ describe('GraphQlDate', function () {
         kind: Kind.STRING,
         value: '2015-07-24T10:56:42.744Z'
       }
-      var date = GraphQlDate.parseLiteral(ast)
+      var date = GraphQLDate.parseLiteral(ast)
       expect(date).to.be.an.instanceOf(Date)
       expect(date.toJSON()).to.equal(ast.value)
       done()
