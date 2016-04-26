@@ -1,0 +1,35 @@
+{
+  "name": "graphql-date",
+  "version": "0.0.0",
+  "description": "GraphQL Date Type",
+  "main": "index.js",
+  "scripts": {
+    "test": "istanbul cover _mocha ./test && istanbul --text check-coverage --statements 100 --functions 100 --branches 100 --lines 100",
+    "test-watch": "nodemon -x mocha ./test",
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tjmehta/graphql-date.git"
+  },
+  "keywords": [
+    "graphql",
+    "date",
+    "type",
+    "datetype"
+  ],
+  "author": "Tejesh Mehta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjmehta/graphql-date/issues"
+  },
+  "homepage": "https://github.com/tjmehta/graphql-date",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.3",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "graphql": "^0.5.0"
+  }
+}
