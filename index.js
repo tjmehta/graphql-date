@@ -9,7 +9,7 @@ module.exports = new GraphQLScalarType({
    * @param  {Date} value date value
    * @return {String} date as string
    */
-  serialize (value) {
+  serialize: function (value) {
     if (!(value instanceof Date)) {
       throw new TypeError('Field error: value is not an instance of Date')
     }
@@ -25,7 +25,7 @@ module.exports = new GraphQLScalarType({
    * @param  {*} value serialized date value
    * @return {Date} date value
    */
-  parseValue (value) {
+  parseValue: function (value) {
     var date = new Date(value)
 
     if (isNaN(date.getTime())) {
@@ -39,7 +39,7 @@ module.exports = new GraphQLScalarType({
    * @param  {Object} ast graphql ast
    * @return {Date} date value
    */
-  parseLiteral (ast) {
+  parseLiteral: function (ast) {
     if (ast.kind !== Kind.STRING) {
       throw new GraphQLError('Query error: Can only parse strings to dates but got a: ' + ast.kind, [ast])
     }
