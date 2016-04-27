@@ -1,4 +1,4 @@
-# graphql-date [![Build Status](https://travis-ci.org/tjmehta/graphql-type.svg)](https://travis-ci.org/tjmehta/graphql-type) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
+# graphql-date [![Build Status](https://travis-ci.org/tjmehta/graphql-date.svg)](https://travis-ci.org/tjmehta/graphql-date) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 GraphQL Date Type
 
 # Installation
