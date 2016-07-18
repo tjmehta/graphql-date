@@ -14,23 +14,23 @@ var GraphQLDate = require('graphql-date')
 var fooType = new GraphQLObjectType({
   name: 'Foo',
   description: 'Some foo type',
-  fields: function () {
+  fields: {
     created: {
       type: GraphQLDate,
       description: 'Date foo was created'
-    },
+    }
   }
 });
 
 var queryType = new GraphQLObjectType({
   name: 'Query',
-  fields: function () {
-    date: {
+  fields: {
+    foo: {
       type: fooType,
       resolve: function () {
         // ...
       },
-    },
+    }
   }
 })
 ```
