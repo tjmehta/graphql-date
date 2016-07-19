@@ -1,6 +1,6 @@
 {
   "name": "graphql-date",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "GraphQL Date Type",
   "main": "index.js",
   "scripts": {
